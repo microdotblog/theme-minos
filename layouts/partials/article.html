@@ -1,8 +1,8 @@
 <article class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+    <div class="article-inner h-entry">
         {{ if .Title }}
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">{{ .Title }}</h1>
+            <h1 class="article-title p-name" itemprop="name">{{ .Title }}</h1>
         </header>
         {{ end }}
         <div class="article-meta">
@@ -28,7 +28,7 @@
             </div>
             {{ end }}
         </div>
-        <div class="article-entry" itemprop="articleBody">
+        <div class="article-entry e-content" itemprop="articleBody">
             {{ .Content }}
         </div>
 
