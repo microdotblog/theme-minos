@@ -5,6 +5,11 @@
     {{ partial "header.html" . }}
     <section id="main" class="outer">
         {{ partial "article.html" . }}
+
+{{ if .Site.Params.include_conversation }}
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+{{ end }}
+
         {{ if and (not .Params.nocomment) .Site.DisqusShortname }}
             {{ template "_internal/disqus.html" . }}
         {{ end }}
