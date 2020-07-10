@@ -32,11 +32,15 @@
 
     <link rel="shortcut icon" href="/favicon.png">
 
-    <link href="{{ "webfonts/ptserif/main.css" | absURL }}" rel='stylesheet' type='text/css'>
-    <link href="{{ "webfonts/source-code-pro/main.css" | absURL }}" rel="stylesheet" type="text/css">
+    <link href="{{ "webfonts/ptserif/main.css" | absURL }}?{{ .Site.Params.theme_seconds }}" rel='stylesheet' type='text/css'>
+    <link href="{{ "webfonts/source-code-pro/main.css" | absURL }}?{{ .Site.Params.theme_seconds }}" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
-    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relURL }}" />
-
-    {{ hugo.Generator }}
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}?{{ .Site.Params.theme_seconds }}">
+    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}" />
+    {{ range .Site.Params.plugins_css }}
+	    <link rel="stylesheet" href="{{ . }}" />
+    {{ end }}
+    {{ range $filename := .Site.Params.plugins_html }}
+    	{{ partial $filename $ }}
+    {{ end }}
 </head>
