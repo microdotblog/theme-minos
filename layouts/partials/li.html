@@ -7,6 +7,11 @@
             <h1 itemprop="name">
                 <a class="archive-article-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h1>
+<div class="article-entry" itemprop="articleBody">
+                    <p>
+                        {{ if .Params.featuredImage }}<img src="{{.Params.featuredImage}}"><br>{{ end }}
+                    {{ .Content }}
+                    </p>
         </header>
     </div>
 </article>
