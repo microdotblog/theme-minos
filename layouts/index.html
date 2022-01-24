@@ -3,7 +3,7 @@
 <div id="container">
     {{ partial "header.html" . }}
     <section id="main" class="outer">
-        {{ $paginator := .Paginate (where .Pages "Type" "post") }}
+        {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
         {{ range $paginator.Pages }}
         <article class="article article-type-post" itemscope itemprop="blogPost">
             <div class="article-inner">
