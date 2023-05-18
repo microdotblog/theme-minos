@@ -2,20 +2,20 @@
 <body>
 <div id="container">
     {{ partial "header.html" . }}
-    <section id="main" class="outer">
+    <section id="main" class="outer h-feed">
         {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
         {{ range $paginator.Pages }}
-        <article class="article article-type-post" itemscope itemprop="blogPost">
+        <article class="article article-type-post h-entry" itemscope itemprop="blogPost">
             <div class="article-inner">
                 <!--<%- partial('post/gallery') %>-->
                 {{ if .Title }}
                 <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+                    <h1 itemprop="name" class="p-name"><a class="article-title" href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
                 </header>
                 {{ end }}
                 <div class="article-meta">
-                    <a href="{{ .RelPermalink }}" class="article-date">
-                        <time datetime='{{ .Date.Format "2006-01-02T15:04:05.000-07:00" }}' itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
+                    <a href="{{ .RelPermalink }}" class="article-date u-url">
+                        <time datetime='{{ .Date.Format "2006-01-02T15:04:05.000-07:00" }}' class="dt-published" itemprop="datePublished">{{ .Date.Format "2006-01-02" }}</time>
                     </a>
                     {{ $Site := .Site }}
                     {{ if .Params.categories }}
@@ -36,12 +36,10 @@
                     </div>
                     {{ end }}
                 </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
+                <div class="article-entry e-content" itemprop="articleBody">
                         {{ if .Params.featuredImage }}<img src="{{.Params.featuredImage}}"><br>{{ end }}
                     {{ .Content }}
-                    </p>
-<!-- 
+<!--
                     <p class="article-more-link">
                         <a href="{{ .RelPermalink }}">Read More</a>
                     </p>
