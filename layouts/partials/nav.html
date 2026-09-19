@@ -1,14 +1,14 @@
 <nav id="article-nav">
-    {{ if .NextPage }}
-    <a href="{{ .NextPage.RelPermalink }}" id="article-nav-newer" class="article-nav-link-wrap">
+    {{ if .NextInSection }}
+    <a href="{{ .NextInSection.RelPermalink }}" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            {{ .NextPage.Title }}
+            {{ .NextInSection.Title }}
         </div>
     </a>
     {{ end }}
-    {{ if .PrevPage }}
-    <a href="{{ .PrevPage.RelPermalink }}" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">{{ .PrevPage.Title  }}&nbsp;<span>&gt;</span></div>
+    {{ if .PrevInSection }}
+    <a href="{{ .PrevInSection.RelPermalink }}" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">{{ .PrevInSection.Title  }}&nbsp;<span>&gt;</span></div>
     </a>
     {{ end }}
 </nav>

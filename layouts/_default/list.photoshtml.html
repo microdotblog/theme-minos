@@ -19,7 +19,7 @@
 
 		</div>
 
-        {{ if and (not .Params.nocomment) .Site.DisqusShortname }}
+        {{ if and (not .Params.nocomment) .Site.Config.Services.Disqus.Shortname }}
             {{ template "_internal/disqus.html" . }}
         {{ end }}
     </section>
