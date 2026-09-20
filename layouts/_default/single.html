@@ -10,7 +10,7 @@
 <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
 {{ end }}
 
-        {{ if and (not .Params.nocomment) .Site.DisqusShortname }}
+        {{ if and (not .Params.nocomment) .Site.Config.Services.Disqus.Shortname }}
             {{ template "_internal/disqus.html" . }}
         {{ end }}
     </section>
